@@ -70,8 +70,9 @@ function makeGuess(guess) {
 }
 
 $('canvas').on('click', function(e) {
-  for (var i = 0; i < colors.length; i++) {
-    interfaceObj.color = colors[i];
+  var cc = pickRandomColors(4);
+  for (var i = 0; i < cc.length; i++) {
+    interfaceObj.cc = cc[i];
     interfaceObj.drawPegAtPos(i);
   }
   interfaceObj.nextLine();
