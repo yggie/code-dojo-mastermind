@@ -45,3 +45,26 @@ function getNumMatchingPos(code, guess) {
   }
   return counter;
 }
+
+var secretCode, previousGuesses, numGuessesRemaining;
+
+function initializeGame() {
+  secretCode = pickRandomColors(4);
+  previousGuesses = [];
+  numGuessesRemaining = 12;
+}
+
+function makeGuess(guess) {
+  previousGuesses.push(guess);
+
+  numGuessesRemaining = numGuessesRemaining - 1;
+  var colorMatches = getNumMatchingColors(secretCode, guess);
+  var posMatches = getNumMatchingPos(secretCode, guess);
+
+  return {
+    colorMatches: colorMatches,
+    posMatches: posMatches,
+    win: (posMatches === guess.length),
+    lose: (numGuessesRemaining <= 0)
+  }
+}
