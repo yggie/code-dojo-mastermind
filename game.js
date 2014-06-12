@@ -17,3 +17,31 @@ function pickRandomColors(num) {
   }
   return chosen.map(function(index) { return colors[index]; });
 }
+
+function getNumMatchingColors(code, guess) {
+  var counter = 0;
+  for (var i=0; i < guess.length; i++)
+  {
+    for (var j=0; j < code.length; j++)
+    {
+      if (guess[i]== code[j])
+        {
+          counter = counter + 1
+        }
+    }
+  }
+
+  return counter;
+}
+
+function getNumMatchingPos(code, guess) {
+  var counter = 0;
+  for (var i=0; i < guess.length; i++)
+  {
+    if (guess[i] == code[i])
+      {
+        counter = counter + 1
+      }
+  }
+  return counter;
+}
