@@ -1,0 +1,43 @@
+<html>
+<canvas id="mastermindCanvas" width="1200" height="600" style="border:3px solid #d3d3d3;">
+
+<script type='text/javascript' src='game.js' ></script>
+<script>
+
+function InterfaceObj(canvas) {
+  this.canvas = canvas;
+};
+
+InterfaceObj.prototype.leftMargin = 100;
+InterfaceObj.prototype.pegStep = 20;
+InterfaceObj.prototype.pegSize = 20;
+InterfaceObj.prototype.line = 1;
+InterfaceObj.prototype.lineSpacing = 20;
+
+InterfaceObj.prototype.drawPegAtPos = function(pegNumber) {
+  var context = this.canvas.getContext("2d");
+  context.fillStyle = this.color;
+  var xCoord = this.leftMargin + (this.pegSize + this.pegStep)*pegNumber;
+  var yCoord = this.line * (this.pegSize + this.lineSpacing);
+  context.fillRect(xCoord, yCoord, this.pegSize, this.pegSize);
+};
+
+InterfaceObj.prototype.nextLine = function() {
+  this.line++;
+};
+
+InterfaceObj.prototype.drawGuessCounter = function(amount) {
+  var context = this.canvas.getContext("2d");
+  context.fillText("Guesses: " + amount, 10, 20);
+};
+
+var interfaceObj = new InterfaceObj(document.getElementById("mastermindCanvas"));
+
+interfaceObj.drawGuessCounter(5);
+
+initializeGame();
+
+
+</script>
+
+</html>
