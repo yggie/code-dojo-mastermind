@@ -1,4 +1,4 @@
-var colors = ['#ff0000', '#0000ff', '#00ff00', '#ffff00', '#000000', '#ffffff'];
+var colors = ['#ff0000', '#0000ff', '#00ff00', '#ffff00', '#000000', '#00ffff'];
 
 function randomInt(range) {
   return Math.floor(range * Math.random());
@@ -68,3 +68,12 @@ function makeGuess(guess) {
     lose: (numGuessesRemaining <= 0)
   }
 }
+
+$('canvas').on('click', function(e) {
+  for (var i = 0; i < colors.length; i++) {
+    interfaceObj.color = colors[i];
+    interfaceObj.drawPegAtPos(i);
+  }
+  interfaceObj.nextLine();
+});
+
