@@ -48,8 +48,8 @@ function getNumMatchingPos(code, guess) {
 
 var secretCode, previousGuesses, numGuessesRemaining;
 
-function initializeGame() {
-  secretCode = pickRandomColors(4);
+function initializeGame(quant) {
+  secretCode = pickRandomColors(quant);
   previousGuesses = [];
   numGuessesRemaining = 12;
 }
