@@ -1,4 +1,4 @@
-var colors = ['red', 'blue', 'green', 'yellow', 'black', 'white'];
+var colors = ['#ff0000', '#0000ff', '#00ff00', '#ffff00', '#000000', '#ffffff'];
 
 function randomInt(range) {
   return Math.floor(range * Math.random());
